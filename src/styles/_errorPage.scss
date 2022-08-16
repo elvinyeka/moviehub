@@ -1,0 +1,90 @@
+.page-error {
+  text-align: center;
+  padding: 2rem;
+}
+
+.error {
+  width: 100vw;
+  height: 100vh;
+}
+.error-back {
+  width: 90vw;
+  margin: 5% auto 15px;
+  color: #999;
+  font-size: 1.1rem;
+  letter-spacing: 0px;
+  text-transform: none;
+}
+
+.error-back a,
+.error-back a:visited {
+  color: #136cb2;
+}
+.error-back a:hover {
+  text-decoration: underline;
+}
+.error-box {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background-color: #deca16;
+  padding: 50px;
+  border-radius: 0.5rem;
+}
+@media screen and (max-width: 558px) {
+  .error-box {
+    flex-direction: column;
+  }
+}
+.error-code {
+  font-size: 100px;
+  line-height: 50px;
+  margin-top: 8px;
+  color: rgba(34, 34, 34, 0.2);
+}
+.error-code span {
+  display: block;
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-top: 25px;
+}
+.error-title {
+  margin-left: 5%;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.35em;
+}
+
+.error-arrow {
+  border-color: #deca16 transparent transparent transparent;
+  border-style: solid;
+  border-width: 21px 0px 0px 32px;
+  height: 0;
+  left: 70%;
+  line-height: 0;
+  position: relative;
+  top: -1px;
+  width: 0;
+}
+.error-info {
+  width: 90vw;
+  text-align: right;
+  color: #999999;
+  font-size: 14px;
+  font-style: italic;
+}
+.error-info a,
+.error-info a:visited {
+  color: #136cb2;
+}
+.error-info a:hover {
+  color: #deca16;
+  text-decoration: underline;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
