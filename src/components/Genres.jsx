@@ -33,6 +33,7 @@ const Genres = ({
     return () => {
       setGenres([]);
     };
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="genre">
