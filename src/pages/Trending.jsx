@@ -43,7 +43,7 @@ const Trending = () => {
               <SingleContent
                 key={movie.id}
                 {...movie}
-                type={movie.media_type}
+                specType={movie.media_type}
               />
             );
           })}

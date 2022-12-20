@@ -5,20 +5,16 @@ import ContentModal from "./ContentModal";
 
 const SingleContent = ({
   id,
-  media_type,
-  type,
-  original_language: language,
   title,
   name,
-  popularity,
-  overview,
   poster_path: poster,
   release_date,
   first_air_date,
   vote_average: rating,
+  specType
 }) => {
   return (
-    <ContentModal media_type={media_type} id={id}>
+    <ContentModal type={specType} id={id}>
       <img
         className="movie-card__poster"
         src={poster ? `${img_300}/${poster}` : unavailable}
@@ -26,7 +22,7 @@ const SingleContent = ({
       />
       <b className="movie-card__title">{title || name}</b>
       <div className="movie-card__subtitle">
-        {type === "tv" ? "TV Series" : "Movie"}
+        {specType === "tv" ? "TV Series" : "Movie"}
         <span className="movie-card__date">
           {moment(first_air_date || release_date).format("DD MMM YYYY")}
         </span>

@@ -56,7 +56,7 @@ const Movies = () => {
       <div className="movies">
         {content &&
           content.map((movie) => {
-            return <SingleContent key={movie.id} {...movie} type={"movie"} />;
+            return <SingleContent key={movie.id} {...movie} specType={'movie'} />;
           })}
       </div>
       {numOfPages > 1 && (

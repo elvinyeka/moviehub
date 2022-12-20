@@ -28,25 +28,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ContentModal({ children, media_type, id }) {
+export default function ContentModal({ children, type, id }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState({});
   const [video, setVideo] = useState();
 
   const handleOpen = () => {
+
     setOpen(true);
   };
 
   const handleClose = () => {
+
     setOpen(false);
   };
 
   const fetchData = async () => {
     try {
-      if (media_type) {
+      if (type) {
+
         const { data } = await axios(
-          `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_THE_MOVIE_DB_API_KEY}&language=en-US`
+          `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_THE_MOVIE_DB_API_KEY}&language=en-US`
         );
         setContent(data);
       }
@@ -57,9 +60,9 @@ export default function ContentModal({ children, media_type, id }) {
 
   const fetchVideo = async () => {
     try {
-      if (media_type) {
+      if (type) {
         const { data } = await axios(
-          `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_THE_MOVIE_DB_API_KEY}&language=en-US`
+          `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${process.env.REACT_APP_THE_MOVIE_DB_API_KEY}&language=en-US`
         );
         setVideo(data.results[0]?.key);
       }
@@ -72,11 +75,12 @@ export default function ContentModal({ children, media_type, id }) {
     fetchData();
     fetchVideo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [open]);
+
 
   return (
     <div>
-      <div className="movie-card" type="button" onClick={handleOpen}>
+      <div className="movie-card"  onClick={handleOpen}>
         {children}
       </div>
       <Modal
@@ -126,7 +130,7 @@ export default function ContentModal({ children, media_type, id }) {
                   )}
                   <p className="content-modal__desc">{content.overview}</p>
                   <div>
-                    <ActorCarousel media_type={media_type} id={id} />
+                    <ActorCarousel media_type={type} id={id} />
                   </div>
                 </div>
               </div>
@@ -136,7 +140,7 @@ export default function ContentModal({ children, media_type, id }) {
                 width="100%"
                 height="500"
                 src={`https://www.youtube.com/embed/${video}`}
-              ></iframe>
+              />
             </div>
           )}
         </Fade>

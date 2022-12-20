@@ -123,7 +123,7 @@ const SearchPage = () => {
               <SingleContent
                 key={movie.id}
                 {...movie}
-                type={type ? "tv" : "movie"}
+                specType={type ? "tv" : "movie"}
               />
             );
           })}
